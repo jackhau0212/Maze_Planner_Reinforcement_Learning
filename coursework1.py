@@ -584,7 +584,7 @@ class MC_agent(object):
 
       # decay epsilon if the reward is positive
       if total_reward > 0:
-        epsilon = max(epsilon * decay, 0.001)
+        epsilon = max(epsilon * decay, 0)
       
       for state in range(env.get_state_size()):
         V[state] = np.max(Q[state, :])
@@ -672,7 +672,7 @@ class TD_agent(object):
       total_rewards.append(total_reward)
     
       if total_reward > 0:
-        epsilon = max(epsilon * decay, 0.001)
+        epsilon = max(epsilon * decay, 0)
       
       # updating the V function and appending it to values list
       for state in range(env.get_state_size()):
